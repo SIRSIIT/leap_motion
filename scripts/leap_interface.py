@@ -112,7 +112,6 @@ class LeapInterface(Leap.Listener):
                     self.right_hand=hand
                 elif hand.is_left:
                     there_is_left_hand=True
-
                     self.left_hand=hand
 
             if not there_is_right_hand:
@@ -267,6 +266,9 @@ class Runner(threading.Thread):
 
     def get_finger_point(self, fingerName, fingerPointName):
         return self.listener.get_finger_point(fingerName, fingerPointName)
+
+    def is_left(self):
+        return self.listener.left_hand
 
     def run (self):
         while True:
